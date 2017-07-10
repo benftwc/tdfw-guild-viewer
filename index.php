@@ -1,9 +1,10 @@
 <?php
 
 require 'vendor/autoload.php';
+require 'inc/core.php';
 
-Flight::route('/', function () {
-  echo 'hello world!';
+Flight::route('/', function() {
+  print getPageRenderer();
 });
 
 Flight::set('flight.base_url ', NULL);        // Override the base url of the request . (default: NULL)
@@ -14,8 +15,3 @@ Flight::set('flight.views.path', "./views");       // Directory containing view 
 Flight::set('flight.views.extension', ".php");  // View template file extension. (default: .php)
 
 Flight::start();
-
-
-// Parser -> Sert à lire un YAML et en extraire les informations d'upgrades pour query l'API
-// Bridge -> Sert à effectuer l'appel à l'API et traiter son retour
-// Renderer -> Sert à formater l'affichage, gérer l'iframe & ses éléments
