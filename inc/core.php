@@ -1,10 +1,19 @@
 <?php
 
+/*
+  Variables utilisées
+  guild_id > Nom de la guilde concernée
+
+*/
 function getPageRenderer() {
   //  return getTreasury("9E4E5390-6048-E711-80D3-E4115BD7186D");
   //  return getUpgrades("229");
   //  return getItemDetails(2322);
   parseItemList([]);
+}
+
+function getGuildId($guildName) {
+  return callAPI("guild/search?name=" . urlencode($guildName));
 }
 
 function getTreasury($guildId) {
