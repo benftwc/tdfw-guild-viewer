@@ -3,6 +3,8 @@
 require 'vendor/autoload.php';
 require 'inc/core.php';
 
+
+
 Flight::route('/', function() {
   print getPageRenderer();
 });
