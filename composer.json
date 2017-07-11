@@ -13,7 +13,8 @@
   ],
   "require": {
     "php": ">=5.3.3",
-    "mikecao/flight": "~1.2"
+    "mikecao/flight": "~1.2",
+    "guzzlehttp/guzzle": "~6.0"
   },
   "suggest": {
     "forestry/log": "Small log file writer with adjustable log level settings.",
