@@ -10,7 +10,7 @@ class GuildViewer {
   }
 
   static public function treasury() {
-    \Flight::render('treasury', ['items' => [1, 2, 3]], 'content');
+    \Flight::render('index', [], 'content');
     \Flight::render('layout', []);
   }
 

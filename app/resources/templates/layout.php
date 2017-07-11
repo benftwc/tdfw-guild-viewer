@@ -26,5 +26,11 @@
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="/js/plugins.js"></script>
-	</body>
+        <script async src="https://gw2armory.com/gw2aEmbeds.js"></script>
+        <script>
+            document.GW2A_EMBED_OPTIONS = {
+                lang: 'fr',
+            };
+        </script>
+    </body>
 </html>
