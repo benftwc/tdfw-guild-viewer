@@ -10,7 +10,25 @@ class GuildViewer {
   }
 
   static public function treasury() {
-    \Flight::render('index', [], 'content');
+    $gw2Api = \Flight::get('tdfw.api_endpoint');
+    $apiToken = \Flight::get('tdfw.api_token');
+
+    $guildId = \Flight::get('tdfw.guild_id');
+
+    $client = new \GuzzleHttp\Client();
+    $ret = $client->request('GET', $gw2Api . '/' . "guild/$guildId/treasury", [
+      'headers' =>
+        [
+          'Authorization' => "Bearer {$apiToken}",
+        ],
+    ]);
+
+    print_r($ret->getBody()->getContents());
+    die;
+
+    return $res->getBody()->getContents();
+
+    \Flight::render('treasury', ['items' => [1, 2, 3]], 'content');
     \Flight::render('layout', []);
   }
 
