@@ -9,6 +9,11 @@ class GuildViewer {
     \Flight::render('layout', []);
   }
 
+  static public function treasury() {
+    \Flight::render('treasury', ['items' => [1, 2, 3]], 'content');
+    \Flight::render('layout', []);
+  }
+
   //    function getPageRenderer() {
   //        //  return getTreasury("9E4E5390-6048-E711-80D3-E4115BD7186D");
   //        //  return getUpgrades("229");

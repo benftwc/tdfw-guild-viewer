@@ -1,7 +1,8 @@
 <?php
 
 //Routes of the application.
-\Flight::route('/', array('\Acme\Demo\Controller\Demo', 'index'));
+\Flight::route('/', array('\Tdfw\GuildViewer\Controller\GuildViewer', 'index'));
+\Flight::route('/treasury', array('\Tdfw\GuildViewer\Controller\GuildViewer', 'treasury'));
 
 //Mappings.
 \Flight::map('notFound', function() {
