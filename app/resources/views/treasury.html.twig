@@ -1,0 +1,13 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    {% for treasury in guildTreasury %}
+        {#{% set treasury = guildTreasury|first %}#}
+        {{ treasury.count }}x
+        <div
+                data-armory-embed="items"
+                data-armory-ids="{{ treasury.item_id }}"
+        >
+        </div>
+    {% endfor %}
+{% endblock %}

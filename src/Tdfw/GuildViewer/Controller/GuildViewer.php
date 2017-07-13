@@ -2,81 +2,34 @@
 
 namespace Tdfw\GuildViewer\Controller;
 
-class GuildViewer {
+use Flight;
+use Gw2\ApiBridge\Controller\Gw2ApiBridge;
 
-  static public function index() {
-    \Flight::render('index', [], 'content');
-    \Flight::render('layout', []);
-  }
+// @TODO: Move to an helper controller or autoload
+if (!function_exists('view')) {
+    function view($template, $data = [])
+    {
+        $loader = new \Twig_Loader_Filesystem(Flight::get('flight.views.path'));
+        $twig = new \Twig_Environment($loader, array('debug' => true));
+        // Extension enables the Twig function dump()
+        $twig->addExtension(new \Twig_Extension_Debug());
+        echo $twig->render($template, $data);
+    }
+}
 
-  static public function treasury() {
-    $gw2Api = \Flight::get('tdfw.api_endpoint');
-    $apiToken = \Flight::get('tdfw.api_token');
+class GuildViewer
+{
+    static public function index()
+    {
+        view('index.html.twig', array());
+    }
 
-    $guildId = \Flight::get('tdfw.guild_id');
+    static public function treasury()
+    {
+        $guildTreasury = Gw2ApiBridge::guildTreasury();
 
-    $client = new \GuzzleHttp\Client();
-    $ret = $client->request('GET', $gw2Api . '/' . "guild/$guildId/treasury", [
-      'headers' =>
-        [
-          'Authorization' => "Bearer {$apiToken}",
-        ],
-    ]);
-
-    print_r($ret->getBody()->getContents());
-    die;
-
-    return $res->getBody()->getContents();
-
-    \Flight::render('treasury', ['items' => [1, 2, 3]], 'content');
-    \Flight::render('layout', []);
-  }
-
-  //    function getPageRenderer() {
-  //        //  return getTreasury("9E4E5390-6048-E711-80D3-E4115BD7186D");
-  //        //  return getUpgrades("229");
-  //        //  return getItemDetails(2322);
-  //        parseItemList([]);
-  //    }
-  //
-  //    function getGuildId($guildName) {
-  //        return callAPI("guild/search?name=" . urlencode($guildName));
-  //    }
-  //
-  //    function getTreasury($guildId) {
-  //        return callAPI("guild/$guildId/treasury");
-  //    }
-  //
-  //    function getItemDetails($itemId) {
-  //        return callAPI("items/" . $itemId);
-  //    }
-  //
-  //    function getUpgrades($upgradeId) {
-  //        return callAPI("guild/upgrades/$upgradeId");
-  //    }
-  //
-  //    function parseItemList($item_ids) {
-  //        $guilde = "9E4E5390-6048-E711-80D3-E4115BD7186D";
-  //        $treasury = json_decode(getTreasury($guilde));
-  //        var_dump($treasury);
-  //    }
-  //
-  //    function callAPI($endpoint, $debug = FALSE) {
-  //        $arena_net_api = 'https://api.guildwars2.com/v2';
-  //        $guild_token = '9525EA30-7A1F-5A4E-B94D-440F4FAA13D0D4863785-5C94-46DA-826C-4E7C2BEC26FB';
-  //        $client = new \GuzzleHttp\Client();
-  //        $res = $client->request('GET', $arena_net_api . '/' . $endpoint, [
-  //            'headers' =>
-  //                [
-  //                    'Authorization' => "Bearer {$guild_token}",
-  //                ],
-  //        ]);
-  //
-  //        if ($debug) {
-  //            return $res;
-  //        }
-  //        else {
-  //            return $res->getBody();
-  //        }
-  //    }
+        view('treasury.html.twig', array(
+            'guildTreasury' => $guildTreasury
+        ));
+    }
 }
