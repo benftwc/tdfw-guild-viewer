@@ -1,3 +1,6 @@
+# Environment used to compile SASS or not ('production'|'development')
+SetEnv APPLICATION_ENV development
+
 # Flight rewrite rules
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f

@@ -1,0 +1,62 @@
+/* Compiled automatically on page load (only on development environment setted in .htaccess) */
+@import 'imports/fonts';
+@import 'imports/variables';
+
+body {
+  font-family: $text-font;
+}
+
+.box {
+  margin-bottom: 15px;
+  padding: 10px;
+
+  background-color: $color-gray-lighter;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+
+  .box-title {
+    margin-bottom: 10px;
+    padding: 10px;
+
+    font-family: $title-font;
+    font-size: 15px;
+    font-weight: bold;
+    color: $color-primary;
+
+    background-color: $color-gray-light;
+    border-radius: 10px;
+  }
+}
+
+#page-treasury {
+  #treasury.box {
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .item {
+        position: relative;
+
+        margin: 5px;
+
+        width: 55px;
+        height: 55px;
+
+        .item-img {
+          width: 55px;
+          height: 55px;
+        }
+
+        .item-qty {
+          position: absolute;
+          top: 0;
+
+          pointer-events: none;
+
+          color: $color-white;
+        }
+      }
+    }
+  }
+}

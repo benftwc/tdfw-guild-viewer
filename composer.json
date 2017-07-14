@@ -1,21 +1,31 @@
 {
-  "name": "damel/flight-skeleton",
-  "description": "Skeleton for applications based on the Flight PHP microframework.",
+  "name": "benftwc/tdfw-guild-viewer",
+  "description": "Bridge between Guild Wars 2 guild upgrades and website-viewer",
   "license": "MIT",
   "version": "1.2.0",
-  "keywords": ["flight", "skeleton"],
+  "keywords": [
+    "gw2",
+    "guild"
+  ],
   "authors": [
     {
-      "name": "Daniel Melzer",
-      "email": "daniel@melzer.ws",
-      "homepage": "http://daniel.melzer.ws"
+      "name": "Benftwc",
+      "email": "benftwc@gmail.com"
+    },
+    {
+      "name": "Sullivan Béthouart",
+      "email": "sullivan@bethouart.fr",
+      "homepage": "https://sullivan.bethouart.fr"
     }
   ],
   "require": {
     "php": ">=5.3.3",
     "mikecao/flight": "~1.2",
     "guzzlehttp/guzzle": "~6.0",
-    "twig/twig": "^1.34"
+    "twig/twig": "^1.34",
+  },
+  "require-dev": {
+    "panique/php-sass": "1.0"
   },
   "suggest": {
     "forestry/log": "Small log file writer with adjustable log level settings.",
