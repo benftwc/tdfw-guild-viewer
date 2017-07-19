@@ -32,4 +32,12 @@ class GuildViewer
             'guildTreasury' => $guildTreasury
         ));
     }
+
+  static public function upgrades() {
+    $guildUpgrades = Gw2ApiBridge::guildUpgrades();
+
+    view('upgrades.html.twig', [
+      'guildUpgrades' => $guildUpgrades
+    ]);
+  }
 }

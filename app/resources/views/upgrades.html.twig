@@ -1,0 +1,28 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <section id="page-upgrades">
+
+        <div id="treasury" class="box">
+            <div class="box-title">
+                Améliorations de la guilde
+            </div>
+
+            <div class="items">
+                {% for treasury in guildUpgrades %}
+                    {{treasury}}
+                    {#<div class="item">#}
+                        {#<div class="item-img"#}
+                             {#data-armory-embed="items"#}
+                             {#data-armory-ids="{{ treasury.item_id }}"#}
+                        {#>#}
+                        {#</div>#}
+
+                        {#<div class="item-qty">{{ treasury.count }}</div>#}
+                    {#</div>#}
+                {% endfor %}
+            </div>
+        </div>
+
+    </section>
+{% endblock %}

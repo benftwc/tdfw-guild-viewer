@@ -3,6 +3,7 @@
 //Routes of the application.
 \Flight::route('/', array('\Tdfw\GuildViewer\Controller\GuildViewer', 'index'));
 \Flight::route('/treasury', array('\Tdfw\GuildViewer\Controller\GuildViewer', 'treasury'));
+\Flight::route('/upgrades', array('\Tdfw\GuildViewer\Controller\GuildViewer', 'upgrades'));
 
 //Mappings.
 \Flight::map('notFound', function() {
